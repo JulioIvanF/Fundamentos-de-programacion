@@ -1,0 +1,76 @@
+//JULIO IVAN FONSECA SANDOVAL
+// declaracion de librerias
+
+#include <ctype.h> 
+#include<stdio.h> 
+#include<iostream>
+#include<math.h> 
+#include<string.h>
+#include<conio.h>
+
+using namespace std;   
+int main() // principal
+{ 
+
+float hor,tarf,sbruto,imp,snto; //declaracion de variables tipo float
+char nombre[20],nombre1[20],nombre2[20],nombre3[20]; /*delcaracion de caracteres dondesegardara el nombre con un maximo de 20 caracteres*/
+
+
+cout<<"                           Nomina"<<endl<<endl<<endl;  /// titulo del programa
+cout<<"¿Cual es eL nombre del empleado?"<<endl;//pide ingresar nombre del empleado 
+
+cin>>nombre>> nombre1>> nombre2>> nombre3;// introduccion del nombre via teclado por el usuario
+cout<<""<<endl;//salto de linea
+
+cout<<"HORAS LABORADAS:";// pide horas laboradas
+cin>>hor;//aqui leera las horas introducidas por el usuario y las guardara en la variable "hor"
+cout<<endl;
+cout<<"TARIFA POR HORA LABORADA:";// aqui solicita el costo por gora laborada
+cin>>tarf; // lee la cantiddad y la guarda en la variable "tarf"
+
+
+
+cout<<endl;
+
+
+//aqui comienza el codigo de condiciones segun los datos introducidos anteriormente
+
+if(hor<=35) //primer condicion; si las horas laboradas son menor o igua a 35 entonces
+{
+	sbruto=hor*tarf;// si lo anteriosse cumple se multiplicaran las horas por el costo de la tarifa y el resultado de guarde en la veriable sbruto
+
+}
+	else// si no se cumple la condicion anterior 
+	{
+		sbruto=35*tarf+(hor-35)*15*tarf; // se ejecutara esta operacion para saber las horas extras y calcular susueldo bruto total, y el resultado ahora lo guardara en sbruto
+		
+	}
+if(sbruto<=2000) // si del loanterior el sueldo bruto es menor o igual que 2000
+	{
+	imp=0; // el impuesto se iguala a cero , por lo tanto no seaolica impuesto
+	cout<<"Impuesto no aplicable a esta persona"<<endl;	//imprimira que la persona no se le calculara impuesto 
+	}
+	else// si no 
+	{
+		if(sbruto>=2000&&sbruto<=2220)// si el sueldo bruto es mayor o igual a 2000 pero menor o igual a 2220
+		{
+			imp=(sbruto-2000)*(.20);// se calcula el impuesto para tal empleado i se guarda en la variable "imp"
+			
+		}
+		else // si no
+		{
+			imp=(220*.20)+(sbruto-2220)*.30;//si el sueldo bruto es mayor a 2220 se  ejecurara esta operacion para calcular nuevo impuesto el cual se guarda en la variable "imp"
+		}
+	}
+	snto=sbruto-imp;// se aplicara enta operacion al final de todo para calcular su sueldo neto con o sin impuesto
+	cout<<endl;
+	cout<<"El empleado:"<<endl;
+	cout<<nombre<<" "<<nombre1<<" "<<nombre2<<" "<<nombre3<<endl;// imprime el nombre del empleado dado al inicio
+	cout<<"Su sueldo bruto es: $"<<sbruto<<endl; // se imprime el valor calculado para le sueldo bruto	
+	cout<<"Su impuesto es de: $"<<imp<<endl; // se imprime la cantidad de impuesto 
+	cout<<"El sueldo neto es:$"<<snto<<endl; // se imprime la cantidad del sueldo neto 
+
+
+	
+	return 0;
+}
